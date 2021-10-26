@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Hero extends Entity {
 	protected int lifePoints;
+	
 	protected int attackPoints;
 	protected int gold;
 	private Weapon weapon;
@@ -18,17 +19,20 @@ public class Hero extends Entity {
 		this.weapon = weapon;
 		this.healPotions = 3;
 		this.inventory = new ArrayList<Item>(10);
+		
 	}
 
-	public boolean isAlive() {
+	public boolean isAlive() {	
+		lifePoints = 100;
 		return this.lifePoints > 0;
 	}
 
-	public int getLifePoints() {
+	public int getLifePoints() {		
 		return lifePoints;
 	}
 
 	public void setLifePoints(int lifePoints) {
+		
 		this.lifePoints = lifePoints;
 	}
 
@@ -96,6 +100,11 @@ public class Hero extends Entity {
 			}
 		}
 
+	}
+
+	public int setLifePoints() {
+		// TODO Auto-generated method stub
+		return 100;
 	}
 
 	/*

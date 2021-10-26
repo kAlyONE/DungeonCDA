@@ -437,11 +437,22 @@ public class Labyrinthe {
 						System.out.println("");
 					}
 				}
+				
+				System.out.println(player.getLifePoints());
 				System.out.println("	      +-------------------------------------------------------------------+");
 				System.out.println("	      |  Vous lancez une boule de feu ! Vous infligez " + player.attackPoints
-						+ " points de dégats  |");
+						+ " points de dégats  | ");
 				System.out.println("  	      +-------------------------------------------------------------------+");
-				monster.setHealthMonster(monster.getHealthMonster() - player.attackPoints);
+				System.out.println("	      +-------------------------------------------------------------------+");
+				System.out.println("              |	    		" + monster.getNom() + " vous inflige "
+						+ monster.getStrengthMonster() + " de déguats 		 | ");
+				System.out.println("	      +-------------------------------------------------------------------+");
+				
+				player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster()); // degat monstre				
+				monster.setHealthMonster(monster.getHealthMonster() - player.attackPoints); // degat joueur
+				
+				System.out.println("Il vous reste " + player.getLifePoints() + "" + player.lifePoints); //  pas de sauvegarde hp entre chaque tour
+
 				break;
 			case "Observer":
 				if (monster.getHealthMonster() > maxHpMonster * 0.75) {

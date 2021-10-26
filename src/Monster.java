@@ -58,4 +58,8 @@ public class Monster extends Entity {
 	public String toString() {
 		return nom;
 	}
+	
+	public static void deguatMonster() {
+		
+	}
 }
