@@ -437,21 +437,26 @@ public class Labyrinthe {
 						System.out.println("");
 					}
 				}
-				
-				System.out.println(player.getLifePoints());
-				System.out.println("	      +-------------------------------------------------------------------+");
-				System.out.println("	      |  Vous lancez une boule de feu ! Vous infligez " + player.attackPoints
-						+ " points de dégats  | ");
-				System.out.println("  	      +-------------------------------------------------------------------+");
-				System.out.println("	      +-------------------------------------------------------------------+");
-				System.out.println("              |	    		" + monster.getNom() + " vous inflige "
-						+ monster.getStrengthMonster() + " de déguats 		 | ");
-				System.out.println("	      +-------------------------------------------------------------------+");
-				
-				player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster()); // degat monstre				
-				monster.setHealthMonster(monster.getHealthMonster() - player.attackPoints); // degat joueur
-				
-				System.out.println("Il vous reste " + player.getLifePoints() + "" + player.lifePoints); //  pas de sauvegarde hp entre chaque tour
+									
+					System.out.println("	      +-------------------------------------------------------------------+");
+					System.out.println("	      |  Vous lancez une boule de feu ! Vous infligez " + player.attackPoints
+							+ " points de dégats | ");
+					System.out.println("  	      +-------------------------------------------------------------------+");
+					
+        			System.out.println("+-----------------------------------------------------------------------------------------+");
+					System.out.println("                  	   " + monster.getNom() + " vous inflige "+ monster.getStrengthMonster() + " points de dégats	    ");
+        			System.out.println("+-----------------------------------------------------------------------------------------+");
+        			
+					monster.setHealthMonster(monster.getHealthMonster() - player.attackPoints); 
+					
+					if(monster.isAlive()) {
+
+						player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster()); 
+	        			System.out.println("+-----------------------------------------------------------------------------------------+");
+						System.out.println("	       		   Il vous reste " + player.lifePoints + " points de vie.");
+	        			System.out.println("+-----------------------------------------------------------------------------------------+");
+        			
+					}
 
 				break;
 			case "Observer":
@@ -480,9 +485,14 @@ public class Labyrinthe {
     				player.setOrd(lastPos.getOrd());
 					fuir = true;
 				} else {
+					player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster());
         			System.out.println("+-----------------------------------------------------------------------------------------+");
     				System.out.println("        		     Le " + monster.getNom() + "  vous barre la route..");
         			System.out.println("+-----------------------------------------------------------------------------------------+");
+        			System.out.println("+-----------------------------------------------------------------------------------------+");
+    				System.out.println("        		     Vous subissez " + monster.getStrengthMonster() + " points de dégats !");
+        			System.out.println("+-----------------------------------------------------------------------------------------+");
+        			
         			break;
 				}
 				break;

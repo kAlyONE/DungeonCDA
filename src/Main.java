@@ -11,7 +11,7 @@ public class Main {
 
 		// Creation d'un joueur ( Prochainement héritier de Entity )
 
-		Hero player = new Hero(10, 10, 0, 0);
+		Hero player = new Hero(100, 10, 0, 0);
 
 		Entity sortie = new Entity(randInt(0, 9), 9);
 

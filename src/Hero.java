@@ -23,7 +23,6 @@ public class Hero extends Entity {
 	}
 
 	public boolean isAlive() {	
-		lifePoints = 100;
 		return this.lifePoints > 0;
 	}
 
@@ -100,11 +99,6 @@ public class Hero extends Entity {
 			}
 		}
 
-	}
-
-	public int setLifePoints() {
-		// TODO Auto-generated method stub
-		return 100;
 	}
 
 	/*
