@@ -41,7 +41,9 @@ public class Labyrinthe {
 	// Affichage du labyrinthe
 
 	public void display(Hero player, Room[][] cellules, Entity sortie) {
-
+		
+		
+		
 		System.out.println("Ou souhaitez vous aller ?\n\n[Z] : Haut - [Q] : Gauche - [S] : Bas - [D] : Droite\n");
 
 		for (int i = 0; i < y; i++) {

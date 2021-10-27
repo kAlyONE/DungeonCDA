@@ -1,18 +1,32 @@
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 public class Weapon extends Item {
 
 	protected int damage;
+	protected String category;
+	static HashMap<String, Integer> weapon = new HashMap<String, Integer>();
 
-	public Weapon(String name, int damage) {
-		super(nom, degat);
+	public Weapon(String nom, int damage, String category) {
+		super(nom);
 		this.damage = damage;
+		this.category = category;
+	}
+
+	public static void listWeapons() {
+
+		weapon.put("Epée en bois", 10);
+		weapon.put("Epée en fer", 15);
+		weapon.put("Epée en or", 20);
+
+		for (Entry<String, Integer> mapentry : weapon.entrySet()) {
+			System.out.println("clé: " + mapentry.getKey() + " | valeur: " + mapentry.getValue());
+		}
 	}
 	
-	public static Weapon[] listWeapon() {
-		Weapon[] weapons = new Weapon[10];
-		weapons[0] = new Weapon("Epée en bois", 10);
-		weapons[1] = new Weapon("Epée en fer", 15);
-		weapons[2] = new Weapon("Epée en or", 15);
-		return weapons;
+	public static void attackMonster() {
+//		Weapon.listWeapons();
+//		System.out.println(Weapon.weapon.get("Epée en or"));
 	}
 
 	public int getDamage() {

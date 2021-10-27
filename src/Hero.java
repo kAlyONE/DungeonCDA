@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Hero extends Entity {
 	protected int lifePoints;
-	
+
 	protected int attackPoints;
 	protected int gold;
 	private Weapon weapon;
@@ -20,7 +20,7 @@ public class Hero extends Entity {
 		this.weapon = weapon;
 		this.healPotions = 3;
 		this.inventory = new ArrayList<Item>(10);
-		view="Right";
+		view = "Right";
 	}
 
 	public String getView() {
@@ -31,16 +31,16 @@ public class Hero extends Entity {
 		this.view = view;
 	}
 
-	public boolean isAlive() {	
+	public boolean isAlive() {
 		return this.lifePoints > 0;
 	}
 
-	public int getLifePoints() {		
+	public int getLifePoints() {
 		return lifePoints;
 	}
 
 	public void setLifePoints(int lifePoints) {
-		
+
 		this.lifePoints = lifePoints;
 	}
 
