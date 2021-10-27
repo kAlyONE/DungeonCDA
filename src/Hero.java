@@ -9,6 +9,14 @@ public class Hero extends Entity {
 	private Weapon weapon;
 	private List<Item> inventory;
 	private int healPotions;
+	public int getHealPotions() {
+		return healPotions;
+	}
+
+	public void setHealPotions(int healPotions) {
+		this.healPotions = healPotions;
+	}
+
 	private String view;
 
 	public Hero(int lifePoints, int attackPoints, int abs, int ord) {

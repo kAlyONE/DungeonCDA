@@ -28,6 +28,8 @@ public class Main {
 		maze.generateRandom();
 
 		// Affichage du labyrinthe dans la console
+		
+		cellules[player.getAbs()][player.getOrd()].setVisited(true);
 
 		maze.display(player, cellules, sortie);
 
@@ -37,17 +39,13 @@ public class Main {
 
 		Entity lastPos = new Entity(0, 0);
 		
-		String vue = getPlayerView.getPlayerView(player);
-
 		// Boucle de jeu
 
 		while (!choix.equals("End")) {
 			
-			vue = getPlayerView.getPlayerView(player);
+			System.out.println("\n+---------------------------------------------------------------------------------------------------+\n");
 			
-			System.out.println(vue);
-			
-			cellules[player.getAbs()][player.getOrd()].getView(player);;
+			cellules[player.getAbs()][player.getOrd()].getView(player);
 
 			choix = in.next();
 

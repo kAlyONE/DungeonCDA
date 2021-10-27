@@ -49,9 +49,14 @@ public class Labyrinthe {
 			// Dessine le haut du labyrinthe
 
 			for (int j = 0; j < x; j++) {
-
-				System.out.print(cells[j][i].isWallUp() ? "+---" : "+   ");
-
+				
+				if(cells[j][i].isVisited()) {
+					System.out.print(cells[j][i].isWallUp() ? "+---" : "+   ");
+				}
+				else {
+					System.out.print(cells[j][i].isWallUp() ? "    " : "    ");
+				}
+				
 			}
 
 			System.out.println("+");
@@ -86,13 +91,21 @@ public class Labyrinthe {
 				}
 
 				else {
+					
+					if(cells[j][i].isVisited()) {
 
-					System.out.print(cells[j][i].isWallLeft() ? "|   " : "    ");
+						System.out.print(cells[j][i].isWallLeft() ? "|   " : "    ");
+					
+					}
+					
+					else {
+						System.out.print(cells[j][i].isWallLeft() ? "    " : "    ");
+					}
 
 				}
 
 			}
-
+			
 			System.out.println("|");
 
 		}
@@ -117,9 +130,13 @@ public class Labyrinthe {
 		if (!cells[player.getAbs()][player.getOrd()].isWallRight() && player.getAbs() < x - 1) {
 			player.setAbs(player.getAbs() + 1);
 			player.setView("Right");
+			cells[player.getAbs()][player.getOrd()].setVisited(true);;
 		}
 		else {
 			System.out.println("Il y a un mur de ce coté.");
+			if(player.getAbs()< x-1) {
+				cells[player.getAbs()+1][player.getOrd()].setVisited(true);;
+			}
 		}
 	}
 
@@ -131,9 +148,13 @@ public class Labyrinthe {
 		if (!cells[player.getAbs()][player.getOrd()].isWallUp() && player.getOrd() > 0) {
 			player.setOrd(player.getOrd() - 1);
 			player.setView("Up");
+			cells[player.getAbs()][player.getOrd()].setVisited(true);
 		}
 		else {
 			System.out.println("Il y a un mur de ce coté.");
+			if(player.getOrd() > 0) {
+				cells[player.getAbs()][player.getOrd()-1].setVisited(true);;
+			}
 		}
 	}
 
@@ -145,9 +166,13 @@ public class Labyrinthe {
 		if (!cells[player.getAbs()][player.getOrd()].isWallDown() && player.getOrd() < y - 1) {
 			player.setOrd(player.getOrd() + 1);
 			player.setView("Down");	
+			cells[player.getAbs()][player.getOrd()].setVisited(true);;
 		}
 		else {
 			System.out.println("Il y a un mur de ce coté.");
+			if(player.getOrd() < y-1) {
+				cells[player.getAbs()][player.getOrd()+1].setVisited(true);;
+			}
 		}
 	}
 
@@ -159,6 +184,7 @@ public class Labyrinthe {
 		if (!cells[player.getAbs()][player.getOrd()].isWallLeft() && player.getAbs() > 0) {
 			player.setAbs(player.getAbs() - 1);
 			player.setView("Left");
+			cells[player.getAbs()][player.getOrd()].setVisited(true);;
 		}
 		else {
 			System.out.println("Il y a un mur de ce coté.");
@@ -429,27 +455,27 @@ public class Labyrinthe {
 						System.out.println("");
 					}
 					System.out.println(ascii1);
-					Thread.sleep(250);
+					Thread.sleep(150);
 					for (int i = 0; i < 40; i++) {
 						System.out.println("");
 					}
 					System.out.println(ascii2);
-					Thread.sleep(250);
+					Thread.sleep(150);
 					for (int i = 0; i < 40; i++) {
 						System.out.println("");
 					}
 					System.out.println(ascii3);
-					Thread.sleep(250);
+					Thread.sleep(150);
 					for (int i = 0; i < 40; i++) {
 						System.out.println("");
 					}
 					System.out.println(ascii4);
-					Thread.sleep(250);
+					Thread.sleep(150);
 					for (int i = 0; i < 40; i++) {
 						System.out.println("");
 					}
 					System.out.println(ascii5);
-					Thread.sleep(250);
+					Thread.sleep(150);
 					if (j == 2) {
 						break;
 					}
@@ -463,18 +489,18 @@ public class Labyrinthe {
 							+ " points de dégats | ");
 					System.out.println("  	      +-------------------------------------------------------------------+");
 					
-        			System.out.println("+-----------------------------------------------------------------------------------------+");
+	    			System.out.println("+--------------------------------------------------------------------------------------------------+");
 					System.out.println("                  	   " + monster.getNom() + " vous inflige "+ monster.getStrengthMonster() + " points de dégats	    ");
-        			System.out.println("+-----------------------------------------------------------------------------------------+");
+	    			System.out.println("+--------------------------------------------------------------------------------------------------+");
         			
 					monster.setHealthMonster(monster.getHealthMonster() - player.attackPoints); 
 					
 					if(monster.isAlive()) {
 
 						player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster()); 
-	        			System.out.println("+-----------------------------------------------------------------------------------------+");
+		    			System.out.println("+--------------------------------------------------------------------------------------------------+");
 						System.out.println("	       		   Il vous reste " + player.lifePoints + " points de vie.");
-	        			System.out.println("+-----------------------------------------------------------------------------------------+");
+		    			System.out.println("+--------------------------------------------------------------------------------------------------+");
         			
 					}
 
@@ -493,7 +519,44 @@ public class Labyrinthe {
 				}
 				break;
 			case "Inventaire":
+				
+				choix = "";
+				
+				System.out.println("Or : " + player.getGold());
+				
+				System.out.println("Potion de Vie - " + player.getHealPotions() + " restantes." );
+				
+    			System.out.println("");
+				
 				player.showInventory(player, "");
+				
+    			System.out.println("");
+    			
+    			System.out.println("+--------------------------------------------------------------------------------------------------+");
+				System.out.println("                                    Quel objet Utiliser ?");
+    			System.out.println("+--------------------------------------------------------------------------------------------------+");
+				
+				while(choix.equals("")){
+					choix = in.nextLine();
+				}
+				
+				switch(choix) {
+				
+				case "Potion de Vie":
+					if(player.getHealPotions()>0) {
+						player.lifePoints+=20;
+						System.out.println("Vous récupérez 20 points de vie.");
+						player.setHealPotions(player.getHealPotions()-1);
+					}
+					else {
+						System.out.println("Vous n'avez plus de potions de vie..");
+					}
+					break;
+				}
+				player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster());
+    			System.out.println("+--------------------------------------------------------------------------------------------------+");
+				System.out.println("        		     Vous subissez " + monster.getStrengthMonster() + " points de dégats !");
+    			System.out.println("+--------------------------------------------------------------------------------------------------+");
 				break;
 			case "Fuir":
 				int fuite = randInt(0, 100);
@@ -506,12 +569,12 @@ public class Labyrinthe {
 					fuir = true;
 				} else {
 					player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster());
-        			System.out.println("+-----------------------------------------------------------------------------------------+");
+	    			System.out.println("+--------------------------------------------------------------------------------------------------+");
     				System.out.println("        		     Le " + monster.getNom() + "  vous barre la route..");
-        			System.out.println("+-----------------------------------------------------------------------------------------+");
-        			System.out.println("+-----------------------------------------------------------------------------------------+");
+        			System.out.println("+--------------------------------------------------------------------------------------------------+");
+        			System.out.println("+--------------------------------------------------------------------------------------------------+");
     				System.out.println("        		     Vous subissez " + monster.getStrengthMonster() + " points de dégats !");
-        			System.out.println("+-----------------------------------------------------------------------------------------+");
+        			System.out.println("+--------------------------------------------------------------------------------------------------+");
         			
         			break;
 				}
@@ -541,6 +604,14 @@ public class Labyrinthe {
 			System.out.println("	      +-------------------------------------------------------------------+");
 			System.out.println("	      |                    Vous avez vaincu le monstre                    |");
 			System.out.println("  	      +-------------------------------------------------------------------+");
+			
+			int recompense = randInt(0,500);
+			
+			System.out.println("	      +-------------------------------------------------------------------+");
+			System.out.println("	                   Vous gagnez " + recompense + " pièces d'or");
+			System.out.println("  	      +-------------------------------------------------------------------+");
+			
+			player.setGold(player.getGold() + recompense);
 		}
 	}
 
