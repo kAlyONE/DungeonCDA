@@ -23,7 +23,6 @@ public class Hero extends Entity {
 	}
 
 	public boolean isAlive() {	
-		lifePoints = 100;
 		return this.lifePoints > 0;
 	}
 
