@@ -46,15 +46,17 @@ public class Main {
 			switch (choix.toUpperCase()) {
 			case "D":
 				lastPos.setAbs(player.getAbs());
-				for (int i = 0; i < 35; i++) {
+				lastPos.setOrd(player.getOrd());
+				for(int i=0;i<35;i++) {
 					System.out.println("");
 				}
 				maze.moveRight(player, cellules);
 				maze.display(player, cellules, sortie);
 				break;
 			case "Z":
-				lastPos.setAbs(player.getOrd());
-				for (int i = 0; i < 35; i++) {
+				lastPos.setAbs(player.getAbs());
+				lastPos.setOrd(player.getOrd());
+				for(int i=0;i<35;i++) {
 					System.out.println("");
 				}
 				maze.moveUp(player, cellules);
@@ -62,15 +64,17 @@ public class Main {
 				break;
 			case "Q":
 				lastPos.setAbs(player.getAbs());
-				for (int i = 0; i < 35; i++) {
+				lastPos.setOrd(player.getOrd());
+				for(int i=0;i<35;i++) {
 					System.out.println("");
 				}
 				maze.moveLeft(player, cellules);
 				maze.display(player, cellules, sortie);
 				break;
 			case "S":
-				lastPos.setAbs(player.getOrd());
-				for (int i = 0; i < 35; i++) {
+				lastPos.setAbs(player.getAbs());
+				lastPos.setOrd(player.getOrd());
+				for(int i=0;i<35;i++) {
 					System.out.println("");
 				}
 				maze.moveDown(player, cellules);
