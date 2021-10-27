@@ -36,10 +36,18 @@ public class Main {
 		String choix = "";
 
 		Entity lastPos = new Entity(0, 0);
+		
+		String vue = getPlayerView.getPlayerView(player);
 
 		// Boucle de jeu
 
 		while (!choix.equals("End")) {
+			
+			vue = getPlayerView.getPlayerView(player);
+			
+			System.out.println(vue);
+			
+			cellules[player.getAbs()][player.getOrd()].getView(player);;
 
 			choix = in.next();
 
@@ -59,7 +67,7 @@ public class Main {
 				for(int i=0;i<35;i++) {
 					System.out.println("");
 				}
-				maze.moveUp(player, cellules);
+				maze.moveForward(player, cellules);
 				maze.display(player, cellules, sortie);
 				break;
 			case "Q":
@@ -77,7 +85,7 @@ public class Main {
 				for(int i=0;i<35;i++) {
 					System.out.println("");
 				}
-				maze.moveDown(player, cellules);
+				maze.moveBack(player, cellules);
 				maze.display(player, cellules, sortie);
 				break;
 			}

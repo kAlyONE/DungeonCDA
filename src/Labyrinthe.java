@@ -40,7 +40,7 @@ public class Labyrinthe {
 
 	// Affichage du labyrinthe
 
-	public void display(Entity player, Room[][] cellules, Entity sortie) {
+	public void display(Hero player, Room[][] cellules, Entity sortie) {
 
 		System.out.println("Ou souhaitez vous aller ?\n\n[Z] : Haut - [Q] : Gauche - [S] : Bas - [D] : Droite\n");
 
@@ -63,8 +63,20 @@ public class Labyrinthe {
 
 				if (player.getAbs() == cells[j][i].getAbs() && player.getOrd() == cells[j][i].getOrd()) {
 
-					System.out.print(cells[j][i].isWallLeft() ? "| P " : "  P ");
-
+					switch(player.getView()) {
+					case"Right":
+						System.out.print(cells[j][i].isWallLeft() ? "| > " : "  > ");
+						break;
+					case"Left":
+						System.out.print(cells[j][i].isWallLeft() ? "| < " : "  < ");
+						break;
+					case"Up":
+						System.out.print(cells[j][i].isWallLeft() ? "| A " : "  A ");
+						break;
+					case"Down":
+						System.out.print(cells[j][i].isWallLeft() ? "| V " : "  V ");
+						break;
+					}
 				}
 
 				else if (sortie.getAbs() == cells[j][i].getAbs() && sortie.getOrd() == cells[j][i].getOrd()) {
@@ -97,50 +109,58 @@ public class Labyrinthe {
 
 	}
 
-	public void moveRight(Entity player, Room[][] cells) {
+	public void moveRight(Hero player, Room[][] cells) {
 
 		// Deplacement vers la droite si aucun mur ne barre la route et que le joueur
 		// n'est pas contre le mur droit du labyrinthe
 
 		if (!cells[player.getAbs()][player.getOrd()].isWallRight() && player.getAbs() < x - 1) {
 			player.setAbs(player.getAbs() + 1);
-		} else {
+			player.setView("Right");
+		}
+		else {
 			System.out.println("Il y a un mur de ce coté.");
 		}
 	}
 
-	public void moveUp(Entity player, Room[][] cells) {
+	public void moveForward(Hero player, Room[][] cells) {
 
 		// Deplacement vers le haut si aucun mur ne barre la route et que le joueur
 		// n'est pas contre le mur nord du labyrinthe
 
 		if (!cells[player.getAbs()][player.getOrd()].isWallUp() && player.getOrd() > 0) {
 			player.setOrd(player.getOrd() - 1);
-		} else {
+			player.setView("Up");
+		}
+		else {
 			System.out.println("Il y a un mur de ce coté.");
 		}
 	}
 
-	public void moveDown(Entity player, Room[][] cells) {
+	public void moveBack(Hero player, Room[][] cells) {
 
 		// Deplacement vers le bas si aucun mur ne barre la route et que le joueur n'est
 		// pas contre le mur sud du labyrinthe
 
 		if (!cells[player.getAbs()][player.getOrd()].isWallDown() && player.getOrd() < y - 1) {
 			player.setOrd(player.getOrd() + 1);
-		} else {
+			player.setView("Down");	
+		}
+		else {
 			System.out.println("Il y a un mur de ce coté.");
 		}
 	}
 
-	public void moveLeft(Entity player, Room[][] cells) {
+	public void moveLeft(Hero player, Room[][] cells) {
 
 		// Deplacement vers la gauche si aucun mur ne barre la route et que le joueur
 		// n'est pas contre le mur gauche du labyrinthe
-
+		
 		if (!cells[player.getAbs()][player.getOrd()].isWallLeft() && player.getAbs() > 0) {
 			player.setAbs(player.getAbs() - 1);
-		} else {
+			player.setView("Left");
+		}
+		else {
 			System.out.println("Il y a un mur de ce coté.");
 		}
 	}

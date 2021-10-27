@@ -9,6 +9,7 @@ public class Hero extends Entity {
 	private Weapon weapon;
 	private List<Item> inventory;
 	private int healPotions;
+	private String view;
 
 	public Hero(int lifePoints, int attackPoints, int abs, int ord) {
 		super(abs, ord);
@@ -19,7 +20,15 @@ public class Hero extends Entity {
 		this.weapon = weapon;
 		this.healPotions = 3;
 		this.inventory = new ArrayList<Item>(10);
-		
+		view="Right";
+	}
+
+	public String getView() {
+		return view;
+	}
+
+	public void setView(String view) {
+		this.view = view;
 	}
 
 	public boolean isAlive() {	
