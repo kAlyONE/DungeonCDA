@@ -24,7 +24,8 @@ public class Entity {
 	public void setOrd(int ord) {
 		this.ord = ord;
 	}
-
+	
+	
 	// method monstre en aleatoire
 	public static Monster randomMonster(int abs, int ord) {
 

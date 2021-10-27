@@ -527,8 +527,9 @@ public class Labyrinthe {
 					+ "                  /_/                                               /_/                       ";
 			System.out.println(defeat);
 			System.out.println("	      +-------------------------------------------------------------------+");
-			System.out.println("	      |                          Vous êtes mort..                         |");
+			System.out.println("	      |                          Vous êtes mort...                        |");
 			System.out.println("  	      +-------------------------------------------------------------------+");
+			
 		} else {
 			String victory = "    __   __            __         _    ___      __                            __        __       __\r\n"
 					+ "   / /  / / __________/ /        | |  / (_)____/ /_____  _______  __         / /________\\ \\     / /\r\n"
