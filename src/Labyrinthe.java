@@ -39,10 +39,19 @@ public class Labyrinthe {
 	}
 
 	public void fouiller(Hero player, Labyrinthe maze, Room[][] cells) {
+
 		if (cells[player.getAbs()][player.getOrd()].isHiddenPotion()) {
-			System.out.println("Vous trouvez une Potion de Vie !");
-			player.setHealPotions(player.getHealPotions() + 1);
-			cells[player.getAbs()][player.getOrd()].setHiddenPotion(false);
+			int rand = randInt(0, 100);
+			if (rand < 50) {
+				System.out.println("Vous trouvez une Potion de Vie !");
+				player.setHealPotions(player.getHealPotions() + 1);
+				cells[player.getAbs()][player.getOrd()].setHiddenPotion(false);
+
+			} else {
+				System.out.println("Vous trouvez une Potion de Force !");
+				player.setStrenghtPotions(player.getStrenghtPotions() + 1);
+				cells[player.getAbs()][player.getOrd()].setHiddenPotion(false);
+			}
 		} else {
 			System.out.println("Vous fouillez la salle... Mais vous ne trouvez rien.");
 		}
@@ -833,6 +842,16 @@ public class Labyrinthe {
 						player.setHealPotions(player.getHealPotions() - 1);
 					} else {
 						System.out.println("Vous n'avez plus de potions de vie..");
+					}
+					break;
+				case "Potion de Force":
+					if (player.getStrenghtPotions() > 0) {
+						player.attackPoints += 2;
+						System.out.println("Votre Force augmente de 2 !");
+						player.setStrenghtPotions(player.getStrenghtPotions() - 1);
+					} else {
+						System.out.println("Vous n'avez plus de potions de force..");
+						System.out.println("Potion de Force - " + player.getStrenghtPotions() + " restantes.");
 					}
 					break;
 				}
