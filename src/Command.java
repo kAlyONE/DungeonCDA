@@ -1,4 +1,3 @@
-
 public abstract class Command {
 
 	protected Labyrinthe labyrinthe;
@@ -29,5 +28,4 @@ public abstract class Command {
 		else
 			return command.substring(i + 1, command.length());
 	}
-
 }
