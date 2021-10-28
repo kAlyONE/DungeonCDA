@@ -9,6 +9,7 @@ public class Hero extends Entity {
 	private Weapon weapon;
 	private List<Item> inventory;
 	private int healPotions;
+	private int strenghtPotions;
 
 	public int getHealPotions() {
 		return healPotions;
@@ -29,6 +30,7 @@ public class Hero extends Entity {
 		this.weapon = new Weapon("Epee en bois", 0, "epee");
 		this.healPotions = 3;
 		this.inventory = new ArrayList<Item>(10);
+		this.strenghtPotions = 3;
 		view = Directions.RIGHT;
 	}
 
@@ -102,6 +104,14 @@ public class Hero extends Entity {
 		healPotions--;
 		lifePoints += 10;
 	}
+	
+	public int getStrenghtPotions() {
+        return strenghtPotions;
+    }
+
+    public void setStrenghtPotions(int strenghtPotions) {
+        this.strenghtPotions = strenghtPotions;
+    }
 
 	public void showInventory(Hero player, String params) {
 
