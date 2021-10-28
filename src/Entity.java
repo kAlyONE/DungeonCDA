@@ -1,6 +1,11 @@
+import java.io.Serializable;
 import java.util.Random;
 
-public class Entity {
+public class Entity implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int abs;
 	private int ord;
 

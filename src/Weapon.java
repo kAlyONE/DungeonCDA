@@ -1,10 +1,14 @@
-public class Weapon extends Item {
+import java.io.Serializable;
 
+public class Weapon extends Item implements Serializable{
+
+	protected String name;
 	protected int damage;
 	protected String categorie;
 
 	public Weapon(String name, int damage, String categorie) {
-		super(nom, degat);
+		super(nom);
+		this.name = name;
 		this.damage = damage;
 		this.categorie = categorie;
 	}
@@ -31,6 +35,10 @@ public class Weapon extends Item {
 
 	public int getDamage() {
 		return damage;
+	}
+	
+	public String getName() {
+		return name;
 	}
 
 }

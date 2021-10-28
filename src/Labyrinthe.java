@@ -770,10 +770,12 @@ public class Labyrinthe {
 					}
 				}
 
-				System.out.println("	      +-------------------------------------------------------------------+");
-				System.out.println("	      |  Vous lancez une boule de feu ! Vous infligez " + player.attackPoints
-						+ " points de dégats | ");
-				System.out.println("  	      +-------------------------------------------------------------------+");
+				System.out.println(
+						"+--------------------------------------------------------------------------------------------------+");
+				System.out.println("	   Vous attaquez avec votre " + player.getWeapon().getName() +" ! Vous infligez " + player.attackPoints
+						+ " points de dégats !");
+				System.out.println(
+						"+--------------------------------------------------------------------------------------------------+");
 
 				System.out.println(
 						"+--------------------------------------------------------------------------------------------------+");
@@ -813,55 +815,8 @@ public class Labyrinthe {
 
 				choix = "";
 
-				System.out.println("Or : " + player.getGold());
-
-				System.out.println("Potion de Vie - " + player.getHealPotions() + " restantes.");
-
-				System.out.println("");
-
-				player.showInventory(player, "");
-
-				System.out.println("");
-
-				System.out.println(
-						"+--------------------------------------------------------------------------------------------------+");
-				System.out.println("                                    Quel objet Utiliser ?");
-				System.out.println(
-						"+--------------------------------------------------------------------------------------------------+");
-
-				while (choix.equals("")) {
-					choix = in.nextLine();
-				}
-
-				switch (choix) {
-
-				case "Potion de Vie":
-					if (player.getHealPotions() > 0) {
-						player.lifePoints += 20;
-						System.out.println("Vous récupérez 20 points de vie.");
-						player.setHealPotions(player.getHealPotions() - 1);
-					} else {
-						System.out.println("Vous n'avez plus de potions de vie..");
-					}
-					break;
-				case "Potion de Force":
-					if (player.getStrenghtPotions() > 0) {
-						player.attackPoints += 2;
-						System.out.println("Votre Force augmente de 2 !");
-						player.setStrenghtPotions(player.getStrenghtPotions() - 1);
-					} else {
-						System.out.println("Vous n'avez plus de potions de force..");
-						System.out.println("Potion de Force - " + player.getStrenghtPotions() + " restantes.");
-					}
-					break;
-				}
-				player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster());
-				System.out.println(
-						"+--------------------------------------------------------------------------------------------------+");
-				System.out.println(
-						"        		     Vous subissez " + monster.getStrengthMonster() + " points de dégats !");
-				System.out.println(
-						"+--------------------------------------------------------------------------------------------------+");
+				openInventory(player, choix);
+				
 				break;
 			case "Fuir":
 				int fuite = randInt(0, 100);
@@ -925,5 +880,55 @@ public class Labyrinthe {
 			player.setGold(player.getGold() + recompense);
 		}
 	}
+	public void openInventory(Hero player, String choix) {
+		
+		choix = "";
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Or : " + player.getGold());
 
+		System.out.println("Potion de Vie - " + player.getHealPotions() + " restantes.");
+		
+		System.out.println("Potion de Force - " + player.getStrenghtPotions() + " restantes.");
+
+		System.out.println("");
+
+		player.showInventory(player, "");
+
+		System.out.println("");
+
+		System.out.println(
+				"+--------------------------------------------------------------------------------------------------+");
+		System.out.println("                                    Quel objet Utiliser ?");
+		System.out.println(
+				"+--------------------------------------------------------------------------------------------------+");
+
+		while (choix.equals("")) {
+			choix = in.nextLine();
+		}
+
+		switch (choix) {
+
+		case "Potion de Vie":
+			if (player.getHealPotions() > 0) {
+				player.lifePoints += 20;
+				System.out.println("Vous récupérez 20 points de vie.");
+				player.setHealPotions(player.getHealPotions() - 1);
+			} else {
+				System.out.println("Vous n'avez plus de potions de vie..");
+			}
+			break;
+		case "Potion de Force":
+			if (player.getStrenghtPotions() > 0) {
+				player.attackPoints += 5;
+				System.out.println("Votre Force augmente de 5 !");
+				player.setStrenghtPotions(player.getStrenghtPotions() - 1);
+			} else {
+				System.out.println("Vous n'avez plus de potions de force..");
+				System.out.println("Potion de Force - " + player.getStrenghtPotions() + " restantes.");
+			}
+			break;
+		}
+	}
 }

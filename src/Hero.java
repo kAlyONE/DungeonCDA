@@ -1,16 +1,18 @@
 import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
-public class Hero extends Entity {
+public class Hero extends Entity implements Serializable{
 	protected int lifePoints;
-
+	protected String nom;
 	protected int attackPoints;
 	protected int gold;
 	private Weapon weapon;
 	private List<Item> inventory;
 	private int healPotions;
 	private int strenghtPotions;
-
+	private static final long serialVersionUID = 1L;
+	
 	public int getHealPotions() {
 		return healPotions;
 	}
@@ -19,15 +21,24 @@ public class Hero extends Entity {
 		this.healPotions = healPotions;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
 	private Directions view;
 
-	public Hero(int lifePoints, int attackPoints, int abs, int ord) {
+	public Hero(String nom, int lifePoints, int attackPoints, int abs, int ord) {
 		super(abs, ord);
 
+		this.nom=nom;
 		this.lifePoints = lifePoints;
 		this.attackPoints = attackPoints;
 		this.gold = 0;
-		this.weapon = new Weapon("Epee en bois", 0, "epee");
+		this.weapon = new Weapon("Epée en bois", 0, "epee");
 		this.healPotions = 3;
 		this.inventory = new ArrayList<Item>(10);
 		this.strenghtPotions = 3;
