@@ -1,33 +1,28 @@
-import java.util.HashMap;
-
 public class Weapon extends Item {
 
 	protected int damage;
+	protected String categorie;
 
-	protected String category;
-	static HashMap<String, Integer> weapon = new HashMap<String, Integer>();
-
-	public Weapon(String nom, int damage, String category) {
-		super(nom);
+	public Weapon(String name, int damage, String categorie) {
+		super(nom, degat);
 		this.damage = damage;
-		this.category = category;
+		this.categorie = categorie;
 	}
-
+	
 	public static Weapon[] listWeapon() {
 		Weapon[] weapons = new Weapon[10];
 		weapons[0] = new Weapon("Epée en bois", 10, "epee");
 		weapons[1] = new Weapon("Epée en fer", 15, "epee");
 		weapons[2] = new Weapon("Epée en or", 15, "epee");
 		return weapons;
-
 	}
 
 	public String getCategorie() {
-		return category;
+		return categorie;
 	}
 
 	public void setCategorie(String categorie) {
-		this.category = categorie;
+		this.categorie = categorie;
 	}
 
 	public void setDamage(int damage) {

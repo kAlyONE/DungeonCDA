@@ -3,13 +3,12 @@ import java.util.List;
 
 public class Hero extends Entity {
 	protected int lifePoints;
-
+	
 	protected int attackPoints;
 	protected int gold;
 	private Weapon weapon;
 	private List<Item> inventory;
 	private int healPotions;
-
 	public int getHealPotions() {
 		return healPotions;
 	}
@@ -18,7 +17,7 @@ public class Hero extends Entity {
 		this.healPotions = healPotions;
 	}
 
-	private String view;
+	private Directions view;
 
 	public Hero(int lifePoints, int attackPoints, int abs, int ord) {
 		super(abs, ord);
@@ -26,30 +25,30 @@ public class Hero extends Entity {
 		this.lifePoints = lifePoints;
 		this.attackPoints = attackPoints;
 		this.gold = 0;
-		this.weapon = new Weapon("Epee en bois", 0, "epee");
+		this.weapon = new Weapon("Epee en bois",0,"epee");
 		this.healPotions = 3;
 		this.inventory = new ArrayList<Item>(10);
-		view = "Right";
+		view= Directions.RIGHT;
 	}
 
-	public String getView() {
+	public Directions getView() {
 		return view;
 	}
 
-	public void setView(String view) {
+	public void setView(Directions view) {
 		this.view = view;
 	}
 
-	public boolean isAlive() {
+	public boolean isAlive() {	
 		return this.lifePoints > 0;
 	}
 
-	public int getLifePoints() {
+	public int getLifePoints() {		
 		return lifePoints;
 	}
 
 	public void setLifePoints(int lifePoints) {
-
+		
 		this.lifePoints = lifePoints;
 	}
 

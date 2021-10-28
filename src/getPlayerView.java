@@ -1,8 +1,8 @@
-abstract class getPlayerView {
-	abstract void getPlayerView();
+abstract class getPlayerView{  
+  abstract void getPlayerView();  
 
-	public static String getPlayerView(Hero hero) {
-		return hero.getView();
-	}
-
+public static Directions getPlayerView(Hero hero){  
+	 return hero.getView();
+	}  
+	
 }
