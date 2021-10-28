@@ -1,11 +1,11 @@
 public class Item {
 
 	protected static String nom;
-	
+
 	// CONSTRUCTOR
 	public Item(String nom) {
 		this.nom = nom;
-		
+
 	}
 
 	// GETTERS & SETTERS

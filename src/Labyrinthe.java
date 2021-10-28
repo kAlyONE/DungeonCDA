@@ -41,9 +41,7 @@ public class Labyrinthe {
 	// Affichage du labyrinthe
 
 	public void display(Hero player, Room[][] cellules, Entity sortie) {
-		
-		
-		
+
 		System.out.println("Ou souhaitez vous aller ?\n\n[Z] : Haut - [Q] : Gauche - [S] : Bas - [D] : Droite\n");
 
 		for (int i = 0; i < y; i++) {
@@ -51,14 +49,13 @@ public class Labyrinthe {
 			// Dessine le haut du labyrinthe
 
 			for (int j = 0; j < x; j++) {
-				
-				if(cells[j][i].isVisited()) {
+
+				if (cells[j][i].isVisited()) {
 					System.out.print(cells[j][i].isWallUp() ? "+---" : "+   ");
-				}
-				else {
+				} else {
 					System.out.print(cells[j][i].isWallUp() ? "    " : "    ");
 				}
-				
+
 			}
 
 			System.out.println("+");
@@ -70,17 +67,17 @@ public class Labyrinthe {
 
 				if (player.getAbs() == cells[j][i].getAbs() && player.getOrd() == cells[j][i].getOrd()) {
 
-					switch(player.getView()) {
-					case"Right":
+					switch (player.getView()) {
+					case "Right":
 						System.out.print(cells[j][i].isWallLeft() ? "| > " : "  > ");
 						break;
-					case"Left":
+					case "Left":
 						System.out.print(cells[j][i].isWallLeft() ? "| < " : "  < ");
 						break;
-					case"Up":
+					case "Up":
 						System.out.print(cells[j][i].isWallLeft() ? "| A " : "  A ");
 						break;
-					case"Down":
+					case "Down":
 						System.out.print(cells[j][i].isWallLeft() ? "| V " : "  V ");
 						break;
 					}
@@ -93,13 +90,13 @@ public class Labyrinthe {
 				}
 
 				else {
-					
-					if(cells[j][i].isVisited()) {
+
+					if (cells[j][i].isVisited()) {
 
 						System.out.print(cells[j][i].isWallLeft() ? "|   " : "    ");
-					
+
 					}
-					
+
 					else {
 						System.out.print(cells[j][i].isWallLeft() ? "    " : "    ");
 					}
@@ -107,7 +104,7 @@ public class Labyrinthe {
 				}
 
 			}
-			
+
 			System.out.println("|");
 
 		}
@@ -132,12 +129,13 @@ public class Labyrinthe {
 		if (!cells[player.getAbs()][player.getOrd()].isWallRight() && player.getAbs() < x - 1) {
 			player.setAbs(player.getAbs() + 1);
 			player.setView("Right");
-			cells[player.getAbs()][player.getOrd()].setVisited(true);;
-		}
-		else {
+			cells[player.getAbs()][player.getOrd()].setVisited(true);
+			;
+		} else {
 			System.out.println("Il y a un mur de ce coté.");
-			if(player.getAbs()< x-1) {
-				cells[player.getAbs()+1][player.getOrd()].setVisited(true);;
+			if (player.getAbs() < x - 1) {
+				cells[player.getAbs() + 1][player.getOrd()].setVisited(true);
+				;
 			}
 		}
 	}
@@ -151,11 +149,11 @@ public class Labyrinthe {
 			player.setOrd(player.getOrd() - 1);
 			player.setView("Up");
 			cells[player.getAbs()][player.getOrd()].setVisited(true);
-		}
-		else {
+		} else {
 			System.out.println("Il y a un mur de ce coté.");
-			if(player.getOrd() > 0) {
-				cells[player.getAbs()][player.getOrd()-1].setVisited(true);;
+			if (player.getOrd() > 0) {
+				cells[player.getAbs()][player.getOrd() - 1].setVisited(true);
+				;
 			}
 		}
 	}
@@ -167,13 +165,14 @@ public class Labyrinthe {
 
 		if (!cells[player.getAbs()][player.getOrd()].isWallDown() && player.getOrd() < y - 1) {
 			player.setOrd(player.getOrd() + 1);
-			player.setView("Down");	
-			cells[player.getAbs()][player.getOrd()].setVisited(true);;
-		}
-		else {
+			player.setView("Down");
+			cells[player.getAbs()][player.getOrd()].setVisited(true);
+			;
+		} else {
 			System.out.println("Il y a un mur de ce coté.");
-			if(player.getOrd() < y-1) {
-				cells[player.getAbs()][player.getOrd()+1].setVisited(true);;
+			if (player.getOrd() < y - 1) {
+				cells[player.getAbs()][player.getOrd() + 1].setVisited(true);
+				;
 			}
 		}
 	}
@@ -182,13 +181,13 @@ public class Labyrinthe {
 
 		// Deplacement vers la gauche si aucun mur ne barre la route et que le joueur
 		// n'est pas contre le mur gauche du labyrinthe
-		
+
 		if (!cells[player.getAbs()][player.getOrd()].isWallLeft() && player.getAbs() > 0) {
 			player.setAbs(player.getAbs() - 1);
 			player.setView("Left");
-			cells[player.getAbs()][player.getOrd()].setVisited(true);;
-		}
-		else {
+			cells[player.getAbs()][player.getOrd()].setVisited(true);
+			;
+		} else {
 			System.out.println("Il y a un mur de ce coté.");
 		}
 	}
@@ -343,14 +342,14 @@ public class Labyrinthe {
 
 			switch (choix) {
 			case "Attaquer":
-				
-				String ascii1="";
-				String ascii2="";
-				String ascii3="";
-				String ascii4="";
-				String ascii5="";
-				
-				switch(player.getWeapon().getCategorie()) {
+
+				String ascii1 = "";
+				String ascii2 = "";
+				String ascii3 = "";
+				String ascii4 = "";
+				String ascii5 = "";
+
+				switch (player.getWeapon().getCategorie()) {
 				case "epee":
 					ascii1 = "                                                                                                    \r\n"
 							+ "            ...,,,,***/(##%&&@@@@@@@@@@@@ /@@@@                                                     \r\n"
@@ -414,7 +413,7 @@ public class Labyrinthe {
 							+ "    @@@@@@@@@@@                                                                                     \r\n"
 							+ "   &@@@@@@@@@@@@@@@@@@@@@@@@@@@@(                                                                   \r\n"
 							+ "";
-					
+
 					ascii4 = "                                                                                                    \r\n"
 							+ "                                                                                                    \r\n"
 							+ "                                                                                                    \r\n"
@@ -458,114 +457,114 @@ public class Labyrinthe {
 							+ "   &@@@@@@@@@@@@@@@@@@@@@@@@@@@@(                                                                   ";
 					break;
 				case "sort":
-	     			ascii1 = "                                                                                                    \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                            &&                     /                                                \r\n"
-	    					+ "                 &&&&&&&&&&&&&&&                    /                                               \r\n"
-	    					+ "               &&%%%%%%%%%%%%%&&                      //////////////                                \r\n"
-	    					+ "%%%           &%%%%%%%%%%%%%%%%%                      ///////////////                               \r\n"
-	    					+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%              %     / ///////////////                              \r\n"
-	    					+ "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  %%              %%     //////////////////                            \r\n"
-	    					+ "     %%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%% %  //////////////////                              \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%      //////////////                               \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%                         //////////////                                \r\n"
-	    					+ "        %%%%%%%%%%%                                     //////////                                  \r\n"
-	    					+ "     %%%%%%%%%%                                     /                                               \r\n"
-	    					+ "   %%%%%%%%%                                      /                                                 \r\n"
-	    					+ "  %%%%%%%%                                                                                          \r\n"
-	    					+ "%%%%%%%%                                                                                            \r\n"
-	    					+ "%%%%%%                                                                                              \r\n"
-	    					+ "%%%%%                                                                                               \r\n"
-	    					+ "%%%                                                                                                 ";
-	    			
-	    			ascii2 = "                                                                                              \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                          & &&                                                                      \r\n"
-	    					+ "                 &&&&&&&&&&&&&&&                 /      //////////                                  \r\n"
-	    					+ "               &&%%%%%%%%%%%%%&&                   /////////////////                                \r\n"
-	    					+ "%%%           &%%%%%%%%%%%%%%%%%                   //////////////////                               \r\n"
-	    					+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%                      ///////////////                              \r\n"
-	    					+ "%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %%                 %         //////////////                          \r\n"
-	    					+ "     %%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%      %%         //////////////                          \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%         //////////////                           \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%              %%%%%        / //////////////                            \r\n"
-	    					+ "        %%%%%%%%%%%                            %%      //////////////                               \r\n"
-	    					+ "     %%%%%%%%%%                                      /////////////                                  \r\n"
-	    					+ "   %%%%%%%%%                                    /                                                   \r\n"
-	    					+ "  %%%%%%%%                                                                                          \r\n"
-	    					+ "%%%%%%%%                                                                                            \r\n"
-	    					+ "%%%%%%                                                                                              \r\n"
-	    					+ "%%%%%                                                                                               \r\n"
-	    					+ "%%%                                                                                                 ";
-	    			
-	    			ascii3 = "                                                                                              \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                        &&& &&                     /       //////////                             \r\n"
-	    					+ "                 &&&&&&&&&&&&&&&                            /////////////////                     \r\n"
-	    					+ "               &&%%%%%%%%%%%%%&&                           ////////////////////                   \r\n"
-	    					+ "%%%           &%%%%%%%%%%%%%%%%%                               /////////////////                  \r\n"
-	    					+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%                               //// ///////////////              \r\n"
-	    					+ "%%%%%%%%%%%%%%%%%%%%%%%%%%   %%%%                             ////////////////////                \r\n"
-	    					+ "     %%%%%%%%%%%%%%%%%%%%%%%%%%%%                               //////////////////                \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%%%% %%%                               ///////////////                \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%%% %%%%%%%                           ///////////////                 \r\n"
-	    					+ "        %%%%%%%%%%%             %%%%%%%%%                       ///////////////                   \r\n"
-	    					+ "     %%%%%%%%%%                    %%%%%%%                   ///////////////                      \r\n"
-	    					+ "   %%%%%%%%%                         %%%%%%                   /////////                           \r\n"
-	    					+ "  %%%%%%%%                            %%%%%%         /                                              \r\n"
-	    					+ "%%%%%%%%                               %%%%%                                                        \r\n"
-	    					+ "%%%%%%                                  %%% %%%                                                     \r\n"
-	    					+ "%%%%%                                  %   % %%%                                                    \r\n"
-	    					+ "%%%                                       %  %                                                      \r\n"
-	    					+ "\r\n";
-	    			
-	    			ascii4 = "                                                                                              \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                        &&& &&                                   //////////                         \r\n"
-	    					+ "                 &&&&&&&&&&&&&&&                                 /////////////////                 \r\n"
-	    					+ "               &&%%%%%%%%%%%%%&&                                   /////////////////               \r\n"
-	    					+ "%%%           &%%%%%%%%%%%%%%%%%                                   //////////////////////           \r\n"
-	    					+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%                                     //// ///////////////          \r\n"
-	    					+ "%%%%%%%%%%%%%%%%%%%%%%%%    %%   %                                //////////////////////////        \r\n"
-	    					+ "     %%%%%%%%%%%%%%%%%%%%%%%%%%%%                      /     /////// ///////////////////////        \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%%%% %%                                          ///////////////        \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%%% %%%%%%                                      ///////////////         \r\n"
-	    					+ "        %%%%%%%%%%%             %%%%%%%%                                  ///////////////           \r\n"
-	    					+ "     %%%%%%%%%%                   %%%%%%%                              ///////////////              \r\n"
-	    					+ "   %%%%%%%%%                        %%%%%                            /////////                      \r\n"
-	    					+ "  %%%%%%%%                          %%%%%                                                           \r\n"
-	    					+ "%%%%%%%%                           % %%%%                                                          \r\n"
-	    					+ "%%%%%%                            %% %%%%                                                           \r\n"
-	    					+ "%%%%%                              % %%                                                             \r\n"
-	    					+ "%%%                                  %                                                              \r\n"
-	    					+ "\r\n";
-	    			
-	    			ascii5 = "                                                                                              \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                                                                                                    \r\n"
-	    					+ "                                                                      '                             \r\n"
-	    					+ "                        &&& &&                                                ///////////           \r\n"
-	    					+ "                 &&&&&&&&&&&&&&&                       /                         /////////////      \r\n"
-	    					+ "               &&%%%%%%%%%%%%%&&                                                 /////////////////  \r\n"
-	    					+ "%%%           &%%%%%%%%%%%%%%%%%                                                   ///////////////  \r\n"
-	    					+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%                                      //////////// /////////////// \r\n"
-	    					+ "%%%%%%%%%%%%%%%%%%%%%%%    %%   %                           //////////////// /////// ////////////// \r\n"
-	    					+ "%    %%%%%%%%%%%%%%%%%%%%%%%%%%%%            /         ///        ///// /////////////////////////// \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%%%%                                        /////////////////////////// \r\n"
-	    					+ "          %%%%%%%%%%%%%%%%%%%%%%                                                    //////////////  \r\n"
-	    					+ "        %%%%%%%%%%%        %%%%%%                      /                    '    ///////////////    \r\n"
-	    					+ "     %%%%%%%%%%            %%%%%%                                             //////////////        \r\n"
-	    					+ "   %%%%%%%%%               %%%%%                                               ////////             \r\n"
-	    					+ "  %%%%%%%%                 %%%%%                                                                    \r\n"
-	    					+ "%%%%%%%%              %%%%%%%%%                                                                     \r\n"
-	    					+ "%%%%%%               %  %%%%%%                                                                      \r\n"
-	    					+ "%%%%%                %  %%%%%                                                                       \r\n"
-	    					+ "%%%                  %  %%%%                                                                        \r\n"
-	    					+ "";
+					ascii1 = "                                                                                                    \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                            &&                     /                                                \r\n"
+							+ "                 &&&&&&&&&&&&&&&                    /                                               \r\n"
+							+ "               &&%%%%%%%%%%%%%&&                      //////////////                                \r\n"
+							+ "%%%           &%%%%%%%%%%%%%%%%%                      ///////////////                               \r\n"
+							+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%              %     / ///////////////                              \r\n"
+							+ "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  %%              %%     //////////////////                            \r\n"
+							+ "     %%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%% %  //////////////////                              \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%      //////////////                               \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%                         //////////////                                \r\n"
+							+ "        %%%%%%%%%%%                                     //////////                                  \r\n"
+							+ "     %%%%%%%%%%                                     /                                               \r\n"
+							+ "   %%%%%%%%%                                      /                                                 \r\n"
+							+ "  %%%%%%%%                                                                                          \r\n"
+							+ "%%%%%%%%                                                                                            \r\n"
+							+ "%%%%%%                                                                                              \r\n"
+							+ "%%%%%                                                                                               \r\n"
+							+ "%%%                                                                                                 ";
+
+					ascii2 = "                                                                                              \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                          & &&                                                                      \r\n"
+							+ "                 &&&&&&&&&&&&&&&                 /      //////////                                  \r\n"
+							+ "               &&%%%%%%%%%%%%%&&                   /////////////////                                \r\n"
+							+ "%%%           &%%%%%%%%%%%%%%%%%                   //////////////////                               \r\n"
+							+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%                      ///////////////                              \r\n"
+							+ "%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %%                 %         //////////////                          \r\n"
+							+ "     %%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%      %%         //////////////                          \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%         //////////////                           \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%              %%%%%        / //////////////                            \r\n"
+							+ "        %%%%%%%%%%%                            %%      //////////////                               \r\n"
+							+ "     %%%%%%%%%%                                      /////////////                                  \r\n"
+							+ "   %%%%%%%%%                                    /                                                   \r\n"
+							+ "  %%%%%%%%                                                                                          \r\n"
+							+ "%%%%%%%%                                                                                            \r\n"
+							+ "%%%%%%                                                                                              \r\n"
+							+ "%%%%%                                                                                               \r\n"
+							+ "%%%                                                                                                 ";
+
+					ascii3 = "                                                                                              \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                        &&& &&                     /       //////////                             \r\n"
+							+ "                 &&&&&&&&&&&&&&&                            /////////////////                     \r\n"
+							+ "               &&%%%%%%%%%%%%%&&                           ////////////////////                   \r\n"
+							+ "%%%           &%%%%%%%%%%%%%%%%%                               /////////////////                  \r\n"
+							+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%                               //// ///////////////              \r\n"
+							+ "%%%%%%%%%%%%%%%%%%%%%%%%%%   %%%%                             ////////////////////                \r\n"
+							+ "     %%%%%%%%%%%%%%%%%%%%%%%%%%%%                               //////////////////                \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%%%% %%%                               ///////////////                \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%%% %%%%%%%                           ///////////////                 \r\n"
+							+ "        %%%%%%%%%%%             %%%%%%%%%                       ///////////////                   \r\n"
+							+ "     %%%%%%%%%%                    %%%%%%%                   ///////////////                      \r\n"
+							+ "   %%%%%%%%%                         %%%%%%                   /////////                           \r\n"
+							+ "  %%%%%%%%                            %%%%%%         /                                              \r\n"
+							+ "%%%%%%%%                               %%%%%                                                        \r\n"
+							+ "%%%%%%                                  %%% %%%                                                     \r\n"
+							+ "%%%%%                                  %   % %%%                                                    \r\n"
+							+ "%%%                                       %  %                                                      \r\n"
+							+ "\r\n";
+
+					ascii4 = "                                                                                              \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                        &&& &&                                   //////////                         \r\n"
+							+ "                 &&&&&&&&&&&&&&&                                 /////////////////                 \r\n"
+							+ "               &&%%%%%%%%%%%%%&&                                   /////////////////               \r\n"
+							+ "%%%           &%%%%%%%%%%%%%%%%%                                   //////////////////////           \r\n"
+							+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%                                     //// ///////////////          \r\n"
+							+ "%%%%%%%%%%%%%%%%%%%%%%%%    %%   %                                //////////////////////////        \r\n"
+							+ "     %%%%%%%%%%%%%%%%%%%%%%%%%%%%                      /     /////// ///////////////////////        \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%%%% %%                                          ///////////////        \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%%% %%%%%%                                      ///////////////         \r\n"
+							+ "        %%%%%%%%%%%             %%%%%%%%                                  ///////////////           \r\n"
+							+ "     %%%%%%%%%%                   %%%%%%%                              ///////////////              \r\n"
+							+ "   %%%%%%%%%                        %%%%%                            /////////                      \r\n"
+							+ "  %%%%%%%%                          %%%%%                                                           \r\n"
+							+ "%%%%%%%%                           % %%%%                                                          \r\n"
+							+ "%%%%%%                            %% %%%%                                                           \r\n"
+							+ "%%%%%                              % %%                                                             \r\n"
+							+ "%%%                                  %                                                              \r\n"
+							+ "\r\n";
+
+					ascii5 = "                                                                                              \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                                                                                                    \r\n"
+							+ "                                                                      '                             \r\n"
+							+ "                        &&& &&                                                ///////////           \r\n"
+							+ "                 &&&&&&&&&&&&&&&                       /                         /////////////      \r\n"
+							+ "               &&%%%%%%%%%%%%%&&                                                 /////////////////  \r\n"
+							+ "%%%           &%%%%%%%%%%%%%%%%%                                                   ///////////////  \r\n"
+							+ "%%%%%%%%%%   &%%%%%%%%%%%%%%%%%%%                                      //////////// /////////////// \r\n"
+							+ "%%%%%%%%%%%%%%%%%%%%%%%    %%   %                           //////////////// /////// ////////////// \r\n"
+							+ "%    %%%%%%%%%%%%%%%%%%%%%%%%%%%%            /         ///        ///// /////////////////////////// \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%%%%                                        /////////////////////////// \r\n"
+							+ "          %%%%%%%%%%%%%%%%%%%%%%                                                    //////////////  \r\n"
+							+ "        %%%%%%%%%%%        %%%%%%                      /                    '    ///////////////    \r\n"
+							+ "     %%%%%%%%%%            %%%%%%                                             //////////////        \r\n"
+							+ "   %%%%%%%%%               %%%%%                                               ////////             \r\n"
+							+ "  %%%%%%%%                 %%%%%                                                                    \r\n"
+							+ "%%%%%%%%              %%%%%%%%%                                                                     \r\n"
+							+ "%%%%%%               %  %%%%%%                                                                      \r\n"
+							+ "%%%%%                %  %%%%%                                                                       \r\n"
+							+ "%%%                  %  %%%%                                                                        \r\n"
+							+ "";
 				}
 
 				for (int j = 0; j < 3; j++) {
@@ -601,26 +600,31 @@ public class Labyrinthe {
 						System.out.println("");
 					}
 				}
-									
-					System.out.println("	      +-------------------------------------------------------------------+");
-					System.out.println("	      |  Vous lancez une boule de feu ! Vous infligez " + player.attackPoints
-							+ " points de dégats | ");
-					System.out.println("  	      +-------------------------------------------------------------------+");
-					
-	    			System.out.println("+--------------------------------------------------------------------------------------------------+");
-					System.out.println("                  	   " + monster.getNom() + " vous inflige "+ monster.getStrengthMonster() + " points de dégats	    ");
-	    			System.out.println("+--------------------------------------------------------------------------------------------------+");
-        			
-					monster.setHealthMonster(monster.getHealthMonster() - player.attackPoints); 
-					
-					if(monster.isAlive()) {
 
-						player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster()); 
-		    			System.out.println("+--------------------------------------------------------------------------------------------------+");
-						System.out.println("	       		   Il vous reste " + player.lifePoints + " points de vie.");
-		    			System.out.println("+--------------------------------------------------------------------------------------------------+");
-        			
-					}
+				System.out.println("	      +-------------------------------------------------------------------+");
+				System.out.println("	      |  Vous lancez une boule de feu ! Vous infligez " + player.attackPoints
+						+ " points de dégats | ");
+				System.out.println("  	      +-------------------------------------------------------------------+");
+
+				System.out.println(
+						"+--------------------------------------------------------------------------------------------------+");
+				System.out.println("                  	   " + monster.getNom() + " vous inflige "
+						+ monster.getStrengthMonster() + " points de dégats	    ");
+				System.out.println(
+						"+--------------------------------------------------------------------------------------------------+");
+
+				monster.setHealthMonster(monster.getHealthMonster() - player.attackPoints);
+
+				if (monster.isAlive()) {
+
+					player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster());
+					System.out.println(
+							"+--------------------------------------------------------------------------------------------------+");
+					System.out.println("	       		   Il vous reste " + player.lifePoints + " points de vie.");
+					System.out.println(
+							"+--------------------------------------------------------------------------------------------------+");
+
+				}
 
 				break;
 			case "Observer":
@@ -637,64 +641,73 @@ public class Labyrinthe {
 				}
 				break;
 			case "Inventaire":
-				
+
 				choix = "";
-				
+
 				System.out.println("Or : " + player.getGold());
-				
-				System.out.println("Potion de Vie - " + player.getHealPotions() + " restantes." );
-				
-    			System.out.println("");
-				
+
+				System.out.println("Potion de Vie - " + player.getHealPotions() + " restantes.");
+
+				System.out.println("");
+
 				player.showInventory(player, "");
-				
-    			System.out.println("");
-    			
-    			System.out.println("+--------------------------------------------------------------------------------------------------+");
+
+				System.out.println("");
+
+				System.out.println(
+						"+--------------------------------------------------------------------------------------------------+");
 				System.out.println("                                    Quel objet Utiliser ?");
-    			System.out.println("+--------------------------------------------------------------------------------------------------+");
-				
-				while(choix.equals("")){
+				System.out.println(
+						"+--------------------------------------------------------------------------------------------------+");
+
+				while (choix.equals("")) {
 					choix = in.nextLine();
 				}
-				
-				switch(choix) {
-				
+
+				switch (choix) {
+
 				case "Potion de Vie":
-					if(player.getHealPotions()>0) {
-						player.lifePoints+=20;
+					if (player.getHealPotions() > 0) {
+						player.lifePoints += 20;
 						System.out.println("Vous récupérez 20 points de vie.");
-						player.setHealPotions(player.getHealPotions()-1);
-					}
-					else {
+						player.setHealPotions(player.getHealPotions() - 1);
+					} else {
 						System.out.println("Vous n'avez plus de potions de vie..");
 					}
 					break;
 				}
 				player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster());
-    			System.out.println("+--------------------------------------------------------------------------------------------------+");
-				System.out.println("        		     Vous subissez " + monster.getStrengthMonster() + " points de dégats !");
-    			System.out.println("+--------------------------------------------------------------------------------------------------+");
+				System.out.println(
+						"+--------------------------------------------------------------------------------------------------+");
+				System.out.println(
+						"        		     Vous subissez " + monster.getStrengthMonster() + " points de dégats !");
+				System.out.println(
+						"+--------------------------------------------------------------------------------------------------+");
 				break;
 			case "Fuir":
 				int fuite = randInt(0, 100);
 				if (fuite > 50) {
-        			System.out.println("	                         +--------------------------+");
-    				System.out.println("	                         |  Vous prenez la fuite !! |");
-        			System.out.println("	                         +--------------------------+");
-    				player.setAbs(lastPos.getAbs());
-    				player.setOrd(lastPos.getOrd());
+					System.out.println("	                         +--------------------------+");
+					System.out.println("	                         |  Vous prenez la fuite !! |");
+					System.out.println("	                         +--------------------------+");
+					player.setAbs(lastPos.getAbs());
+					player.setOrd(lastPos.getOrd());
 					fuir = true;
 				} else {
 					player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster());
-	    			System.out.println("+--------------------------------------------------------------------------------------------------+");
-    				System.out.println("        		     Le " + monster.getNom() + "  vous barre la route..");
-        			System.out.println("+--------------------------------------------------------------------------------------------------+");
-        			System.out.println("+--------------------------------------------------------------------------------------------------+");
-    				System.out.println("        		     Vous subissez " + monster.getStrengthMonster() + " points de dégats !");
-        			System.out.println("+--------------------------------------------------------------------------------------------------+");
-        			
-        			break;
+					System.out.println(
+							"+--------------------------------------------------------------------------------------------------+");
+					System.out.println("        		     Le " + monster.getNom() + "  vous barre la route..");
+					System.out.println(
+							"+--------------------------------------------------------------------------------------------------+");
+					System.out.println(
+							"+--------------------------------------------------------------------------------------------------+");
+					System.out.println("        		     Vous subissez " + monster.getStrengthMonster()
+							+ " points de dégats !");
+					System.out.println(
+							"+--------------------------------------------------------------------------------------------------+");
+
+					break;
 				}
 				break;
 			}
@@ -710,7 +723,7 @@ public class Labyrinthe {
 			System.out.println("	      +-------------------------------------------------------------------+");
 			System.out.println("	      |                          Vous êtes mort...                        |");
 			System.out.println("  	      +-------------------------------------------------------------------+");
-			
+
 		} else {
 			String victory = "    __   __            __         _    ___      __                            __        __       __\r\n"
 					+ "   / /  / / __________/ /        | |  / (_)____/ /_____  _______  __         / /________\\ \\     / /\r\n"
@@ -723,13 +736,13 @@ public class Labyrinthe {
 			System.out.println("	      +-------------------------------------------------------------------+");
 			System.out.println("	      |                    Vous avez vaincu le monstre                    |");
 			System.out.println("  	      +-------------------------------------------------------------------+");
-			
-			int recompense = randInt(0,500);
-			
+
+			int recompense = randInt(0, 500);
+
 			System.out.println("	      +-------------------------------------------------------------------+");
 			System.out.println("	                   Vous gagnez " + recompense + " pièces d'or");
 			System.out.println("  	      +-------------------------------------------------------------------+");
-			
+
 			player.setGold(player.getGold() + recompense);
 		}
 	}

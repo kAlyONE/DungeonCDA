@@ -11,7 +11,7 @@ public class Room {
 	private boolean isChecked;
 	private boolean isVisited;
 	private Monster monster;
-	HashMap<String,String> views = new HashMap<>();
+	HashMap<String, String> views = new HashMap<>();
 
 	// CONSTRUCTOR
 
@@ -31,7 +31,7 @@ public class Room {
 		if (random < 10) {
 			monster = Entity.randomMonster(x, y);
 		}
-		
+
 		putViews();
 	}
 
@@ -116,9 +116,9 @@ public class Room {
 		return x;
 
 	}
-	
+
 	public void putViews() {
-		views.put("1B",""
+		views.put("1B", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -143,7 +143,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("1L",""
+		views.put("1L", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -168,7 +168,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("1R",""
+		views.put("1R", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -193,7 +193,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("1F",""
+		views.put("1F", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -218,7 +218,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("2FR",""
+		views.put("2FR", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -243,7 +243,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("2FL",""
+		views.put("2FL", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -268,7 +268,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("2FB",""
+		views.put("2FB", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -293,7 +293,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("2LR",""
+		views.put("2LR", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -318,7 +318,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("2BR",""
+		views.put("2BR", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -343,7 +343,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("2BL",""
+		views.put("2BL", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -368,7 +368,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("3FBL",""
+		views.put("3FBL", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -393,7 +393,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("3BLR",""
+		views.put("3BLR", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -418,7 +418,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("3FLR",""
+		views.put("3FLR", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -443,7 +443,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("3FBR",""
+		views.put("3FBR", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -468,7 +468,7 @@ public class Room {
 				+ "             @@@.                                                                   /@@#            \r\n"
 				+ "        .@@&                                                                            .@@@        \r\n"
 				+ "        ====================================================================================");
-		views.put("4FBLR",""
+		views.put("4FBLR", ""
 				+ "           ==============================================================================           \r\n"
 				+ "           @@                                                                          @@           \r\n"
 				+ "             @@                                                                     .@@             \r\n"
@@ -495,39 +495,87 @@ public class Room {
 				+ "        ====================================================================================");
 	}
 
-	public void getView(Hero hero){
+	public void getView(Hero hero) {
 		String codeSalle = "";
 		int nbPortes = 0;
 		String sideLooking = hero.getView();
-		switch(sideLooking){
-			case "Right":
-				if(!isWallRight()) {codeSalle+="F";nbPortes++;}
-				if(!isWallLeft()) {codeSalle+="B";nbPortes++;}
-				if(!isWallUp()) {codeSalle+="L";nbPortes++;}
-				if(!isWallDown()) {codeSalle+="R";nbPortes++;}
-				System.out.println(views.get(nbPortes+codeSalle));
-				break;
-			case "Left":
-				if(!isWallLeft()) {codeSalle+="F";nbPortes++;}
-				if(!isWallRight()) {codeSalle+="B";nbPortes++;}
-				if(!isWallDown()) {codeSalle+="L";nbPortes++;}
-				if(!isWallUp()) {codeSalle+="R";nbPortes++;}
-				System.out.println(views.get(nbPortes+codeSalle));
-				break;
-			case "Up":
-				if(!isWallUp()) {codeSalle+="F";nbPortes++;}
-				if(!isWallDown()) {codeSalle+="B";nbPortes++;}
-				if(!isWallLeft()) {codeSalle+="L";nbPortes++;}
-				if(!isWallRight()) {codeSalle+="R";nbPortes++;}
-				System.out.println(views.get(nbPortes+codeSalle));
-				break;
-			case "Down":
-				if(!isWallDown()) {codeSalle+="F";nbPortes++;}
-				if(!isWallUp()) {codeSalle+="B";nbPortes++;}
-				if(!isWallRight()) {codeSalle+="L";nbPortes++;}
-				if(!isWallLeft()) {codeSalle+="R";nbPortes++;}
-				System.out.println(views.get(nbPortes+codeSalle));
-				break;
+		switch (sideLooking) {
+		case "Right":
+			if (!isWallRight()) {
+				codeSalle += "F";
+				nbPortes++;
+			}
+			if (!isWallLeft()) {
+				codeSalle += "B";
+				nbPortes++;
+			}
+			if (!isWallUp()) {
+				codeSalle += "L";
+				nbPortes++;
+			}
+			if (!isWallDown()) {
+				codeSalle += "R";
+				nbPortes++;
+			}
+			System.out.println(views.get(nbPortes + codeSalle));
+			break;
+		case "Left":
+			if (!isWallLeft()) {
+				codeSalle += "F";
+				nbPortes++;
+			}
+			if (!isWallRight()) {
+				codeSalle += "B";
+				nbPortes++;
+			}
+			if (!isWallDown()) {
+				codeSalle += "L";
+				nbPortes++;
+			}
+			if (!isWallUp()) {
+				codeSalle += "R";
+				nbPortes++;
+			}
+			System.out.println(views.get(nbPortes + codeSalle));
+			break;
+		case "Up":
+			if (!isWallUp()) {
+				codeSalle += "F";
+				nbPortes++;
+			}
+			if (!isWallDown()) {
+				codeSalle += "B";
+				nbPortes++;
+			}
+			if (!isWallLeft()) {
+				codeSalle += "L";
+				nbPortes++;
+			}
+			if (!isWallRight()) {
+				codeSalle += "R";
+				nbPortes++;
+			}
+			System.out.println(views.get(nbPortes + codeSalle));
+			break;
+		case "Down":
+			if (!isWallDown()) {
+				codeSalle += "F";
+				nbPortes++;
+			}
+			if (!isWallUp()) {
+				codeSalle += "B";
+				nbPortes++;
+			}
+			if (!isWallRight()) {
+				codeSalle += "L";
+				nbPortes++;
+			}
+			if (!isWallLeft()) {
+				codeSalle += "R";
+				nbPortes++;
+			}
+			System.out.println(views.get(nbPortes + codeSalle));
+			break;
 		}
 	}
 }
