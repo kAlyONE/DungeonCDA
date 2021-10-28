@@ -28,7 +28,7 @@ public class Main {
 		maze.generateRandom();
 
 		// Affichage du labyrinthe dans la console
-		
+
 		cellules[player.getAbs()][player.getOrd()].setVisited(true);
 
 		maze.display(player, cellules, sortie);
@@ -38,19 +38,20 @@ public class Main {
 		String choix = "";
 
 		Entity lastPos = new Entity(0, 0);
-		
+
 		// Boucle de jeu
 
 		while (!choix.equals("End")) {
-			
-			System.out.println("\n+---------------------------------------------------------------------------------------------------+\n");
-			
-			System.out.println("   "
-					+ "Ou souhaitez vous aller ?\n\n"
+
+			System.out.println(
+					"\n+---------------------------------------------------------------------------------------------------+\n");
+
+			System.out.println("   " + "Ou souhaitez vous aller ?\n\n"
 					+ "   [Z] : Avancer - [Q] : Gauche - [S] : Demi-Tour - [D] : Droite [M] Ouvrir la carte [F] Fouiller");
-			
-			System.out.println("\n+---------------------------------------------------------------------------------------------------+\n");
-			
+
+			System.out.println(
+					"\n+---------------------------------------------------------------------------------------------------+\n");
+
 			cellules[player.getAbs()][player.getOrd()].getView(player);
 
 			choix = in.next();
@@ -59,7 +60,7 @@ public class Main {
 			case "D":
 				lastPos.setAbs(player.getAbs());
 				lastPos.setOrd(player.getOrd());
-				for(int i=0;i<35;i++) {
+				for (int i = 0; i < 35; i++) {
 					System.out.println("");
 				}
 				maze.moveRight(player, cellules);
@@ -68,7 +69,7 @@ public class Main {
 			case "Z":
 				lastPos.setAbs(player.getAbs());
 				lastPos.setOrd(player.getOrd());
-				for(int i=0;i<35;i++) {
+				for (int i = 0; i < 35; i++) {
 					System.out.println("");
 				}
 				maze.moveForward(player, cellules);
@@ -77,7 +78,7 @@ public class Main {
 			case "Q":
 				lastPos.setAbs(player.getAbs());
 				lastPos.setOrd(player.getOrd());
-				for(int i=0;i<35;i++) {
+				for (int i = 0; i < 35; i++) {
 					System.out.println("");
 				}
 				maze.moveLeft(player, cellules);
@@ -86,7 +87,7 @@ public class Main {
 			case "S":
 				lastPos.setAbs(player.getAbs());
 				lastPos.setOrd(player.getOrd());
-				for(int i=0;i<35;i++) {
+				for (int i = 0; i < 35; i++) {
 					System.out.println("");
 				}
 				maze.moveBack(player, cellules);

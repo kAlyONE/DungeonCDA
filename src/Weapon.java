@@ -8,7 +8,7 @@ public class Weapon extends Item {
 		this.damage = damage;
 		this.categorie = categorie;
 	}
-	
+
 	public static Weapon[] listWeapon() {
 		Weapon[] weapons = new Weapon[10];
 		weapons[0] = new Weapon("Epée en bois", 10, "epee");
