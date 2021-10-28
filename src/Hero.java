@@ -18,7 +18,7 @@ public class Hero extends Entity {
 		this.healPotions = healPotions;
 	}
 
-	private Directions view;
+	private String view;
 
 	public Hero(int lifePoints, int attackPoints, int abs, int ord) {
 		super(abs, ord);
@@ -29,18 +29,14 @@ public class Hero extends Entity {
 		this.weapon = new Weapon("Epee en bois", 0, "epee");
 		this.healPotions = 3;
 		this.inventory = new ArrayList<Item>(10);
-<<<<<<< HEAD
 		view = "Right";
-=======
-		view= Directions.RIGHT;
->>>>>>> main
 	}
 
-	public Directions getView() {
+	public String getView() {
 		return view;
 	}
 
-	public void setView(Directions view) {
+	public void setView(String view) {
 		this.view = view;
 	}
 
