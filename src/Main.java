@@ -42,10 +42,22 @@ public class Main {
 		// Boucle de jeu
 
 		while (!choix.equals("End")) {
+<<<<<<< HEAD
 
 			System.out.println(
 					"\n+---------------------------------------------------------------------------------------------------+\n");
 
+=======
+			
+			System.out.println("\n+---------------------------------------------------------------------------------------------------+\n");
+			
+			System.out.println("   "
+					+ "Ou souhaitez vous aller ?\n\n"
+					+ "   [Z] : Avancer - [Q] : Gauche - [S] : Demi-Tour - [D] : Droite [M] Ouvrir la carte [F] Fouiller");
+			
+			System.out.println("\n+---------------------------------------------------------------------------------------------------+\n");
+			
+>>>>>>> main
 			cellules[player.getAbs()][player.getOrd()].getView(player);
 
 			choix = in.next();
@@ -86,6 +98,9 @@ public class Main {
 				}
 				maze.moveBack(player, cellules);
 				maze.display(player, cellules, sortie);
+				break;
+			case "F":
+				maze.fouiller(player, maze, cellules);
 				break;
 			}
 			if (player.getAbs() == sortie.getAbs() && player.getOrd() == sortie.getOrd()) {
