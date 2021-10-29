@@ -30,7 +30,7 @@ public class Room {
 
 		int random = randInt(0, 100);
 
-		if (random < 10) {
+		if (random < 100) {
 			monster = Entity.randomMonster(x, y);
 		}
 

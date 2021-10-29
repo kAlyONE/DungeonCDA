@@ -12,6 +12,21 @@ public class Hero extends Entity implements Serializable{
 	private int healPotions;
 	private int strenghtPotions;
 	private static final long serialVersionUID = 1L;
+
+	private Directions view;
+
+	public Hero(String nom, int lifePoints, int attackPoints, int abs, int ord) {
+		super(abs, ord);
+		this.nom=nom;
+		this.lifePoints = lifePoints;
+		this.attackPoints = attackPoints;
+		this.gold = 0;
+		this.weapon = new Weapon("Epée en bois", 0, "epee");
+		this.healPotions = 3;
+		this.inventory = new ArrayList<Item>(10);
+		this.strenghtPotions = 3;
+		view = Directions.RIGHT;
+	}
 	
 	public int getHealPotions() {
 		return healPotions;
@@ -27,22 +42,6 @@ public class Hero extends Entity implements Serializable{
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	private Directions view;
-
-	public Hero(String nom, int lifePoints, int attackPoints, int abs, int ord) {
-		super(abs, ord);
-
-		this.nom=nom;
-		this.lifePoints = lifePoints;
-		this.attackPoints = attackPoints;
-		this.gold = 0;
-		this.weapon = new Weapon("Epée en bois", 0, "epee");
-		this.healPotions = 3;
-		this.inventory = new ArrayList<Item>(10);
-		this.strenghtPotions = 3;
-		view = Directions.RIGHT;
 	}
 
 	public Directions getView() {
@@ -110,7 +109,6 @@ public class Hero extends Entity implements Serializable{
 	}
 
 	// METHODS
-
 	public void usePotion() {
 		healPotions--;
 		lifePoints += 10;
@@ -126,7 +124,7 @@ public class Hero extends Entity implements Serializable{
 
 	public void showInventory(Hero player, String params) {
 
-		System.out.println("Mon Inventaire :");
+		
 
 		List<Item> inventory = player.getInventory();
 

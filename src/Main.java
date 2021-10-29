@@ -27,7 +27,9 @@ public class Main{
 		
 		Hero player = new Hero(name, 100, 10, 0, 0);
 		
-		File scores = new File("C:/Users/alexa/Desktop/scores.ser");
+//		File scores = new File("C:/Users/alexa/Desktop/scores.ser");
+		File scores = new File("D:\\DEV\\Java\\Projets Eclipse\\DungeonCDA\\score.txt"); 
+		
 		
 		HashMap<Integer,Hero> scoredHeroes = new HashMap<>();
 		
@@ -116,7 +118,7 @@ public class Main{
 			System.out.println(
 					"\n+---------------------------------------------------------------------------------------------------+\n");
 
-			System.out.println("   " + "Ou souhaitez vous aller ?\n"
+			System.out.println("   " + "				   Ou souhaitez vous aller ? \n"
 					+ " +--------------------------------------------------------------------------------------------------+\n"
 					+ " | Déplacements : | [Z] : Avancer        | [Q] : Gauche   | [S] : Demi-Tour    | [D] : Droite       |\n"
 					+ " +--------------------------------------------------------------------------------------------------+\n"

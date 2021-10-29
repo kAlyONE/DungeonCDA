@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Labyrinthe {
@@ -7,7 +8,6 @@ public class Labyrinthe {
 	private Room[][] cells; // Cellules
 
 	// Constructeur du labyrinthe
-
 	public Labyrinthe(int x, int y) {
 
 		this.x = x;
@@ -58,7 +58,6 @@ public class Labyrinthe {
 	}
 
 	// Affichage du labyrinthe
-
 	public void display(Hero player, Room[][] cellules, Entity sortie) {
 
 		for (int i = 0; i < y; i++) {
@@ -383,20 +382,16 @@ public class Labyrinthe {
 	public void generateRandom() throws InterruptedException {
 
 		// On récupère le total de cases du labyrinthe
-
 		int cases = x * y;
 
 		// Variable qui va récupérer un entier aléatoire
-
 		int random = 0;
 
 		// L'entité inexistante qui va dessiner les chemins
-
 		Entity checker = new Entity(0, 0);
 
 		// Boucle de génération du labyrinthe, s'arrête quand toutes les cases ont été
 		// parcourues
-
 		while (cases > 0) {
 
 			// Si le checker est sur une case qui n'a jamais été parcourue, on la notifie
@@ -426,7 +421,6 @@ public class Labyrinthe {
 			// murs
 
 			// HAUT
-
 			case 0:
 				if (checker.getOrd() > 0) {
 					if (!cells[checker.getAbs()][checker.getOrd() - 1].isChecked()) {
@@ -440,7 +434,6 @@ public class Labyrinthe {
 				break;
 
 			// BAS
-
 			case 1:
 				if (checker.getOrd() < y - 1) {
 					if (!cells[checker.getAbs()][checker.getOrd() + 1].isChecked()) {
@@ -454,7 +447,6 @@ public class Labyrinthe {
 				break;
 
 			// GAUCHE
-
 			case 2:
 				if (checker.getAbs() > 0) {
 					if (!cells[checker.getAbs() - 1][checker.getOrd()].isChecked()) {
@@ -468,7 +460,6 @@ public class Labyrinthe {
 				break;
 
 			// DROITE
-
 			case 3:
 				if (checker.getAbs() < x - 1) {
 					if (!cells[checker.getAbs() + 1][checker.getOrd()].isChecked()) {
@@ -482,7 +473,6 @@ public class Labyrinthe {
 				break;
 			}
 		}
-
 	}
 
 	public static int randInt(int min, int max) {
@@ -490,7 +480,6 @@ public class Labyrinthe {
 		int x = (int) ((Math.random() * ((max - min) + 1)) + min);
 
 		return x;
-
 	}
 
 	public void battle(Hero player, Monster monster, Entity lastPos) throws InterruptedException {
@@ -516,20 +505,20 @@ public class Labyrinthe {
 
 			System.out.println("");
 
-			System.out.println("				Que souhaitez vous faire ?");
+			System.out.println("					Que souhaitez vous faire ?");
 
 			System.out.println("");
 
-			System.out.println("		    +----------+ +-----------+ +------------+ +------+");
+			System.out.println("		    +-------------+ +--------------+ +---------------+ +---------+");
 
-			System.out.println("		    | Attaquer | |  Observer | | Inventaire | | Fuir |");
+			System.out.println("		    | [A]Attaquer | |  [O]Observer | | [I]Inventaire | | [F]Fuir |");
 
-			System.out.println("		    +----------+ +-----------+ +------------+ +------+");
+			System.out.println("		    +-------------+ +--------------+ +---------------+ +---------+");
 
 			choix = in.next();
 
 			switch (choix) {
-			case "Attaquer":
+			case "A":
 
 				String ascii1 = "";
 				String ascii2 = "";
@@ -772,8 +761,8 @@ public class Labyrinthe {
 
 				System.out.println(
 						"+--------------------------------------------------------------------------------------------------+");
-				System.out.println("	   Vous attaquez avec votre " + player.getWeapon().getName() +" ! Vous infligez " + player.attackPoints
-						+ " points de dégats !");
+				System.out.println("	   Vous attaquez avec votre " + player.getWeapon().getName()
+						+ " ! Vous infligez " + player.attackPoints + " points de dégats !");
 				System.out.println(
 						"+--------------------------------------------------------------------------------------------------+");
 
@@ -791,14 +780,15 @@ public class Labyrinthe {
 					player.setLifePoints(player.getLifePoints() - monster.getStrengthMonster());
 					System.out.println(
 							"+--------------------------------------------------------------------------------------------------+");
-					System.out.println("	       		   Il vous reste " + player.lifePoints + " points de vie.");
+					System.out
+							.println("	       		        Il vous reste " + player.lifePoints + " points de vie.");
 					System.out.println(
 							"+--------------------------------------------------------------------------------------------------+");
 
 				}
 
 				break;
-			case "Observer":
+			case "O":
 				if (monster.getHealthMonster() > maxHpMonster * 0.75) {
 					System.out.println("Le " + monster.getNom() + " a l'air en pleine forme.");
 				} else if (monster.getHealthMonster() > maxHpMonster * 0.50
@@ -811,14 +801,14 @@ public class Labyrinthe {
 					System.out.println("Le " + monster.getNom() + "  est titubant.");
 				}
 				break;
-			case "Inventaire":
+			case "I":
 
 				choix = "";
 
 				openInventory(player, choix);
-				
+
 				break;
-			case "Fuir":
+			case "F":
 				int fuite = randInt(0, 100);
 				if (fuite > 50) {
 					System.out.println("	                         +--------------------------+");
@@ -846,6 +836,7 @@ public class Labyrinthe {
 				break;
 			}
 		}
+		
 		if (!player.isAlive()) {
 			String defeat = "    __   __            __         ____       ____           __           __        __       __\r\n"
 					+ "   / /  / / __________/ /        / __ \\___  / __/__  ____ _/ /_         / /________\\ \\     / /\r\n"
@@ -857,7 +848,7 @@ public class Labyrinthe {
 			System.out.println("	      +-------------------------------------------------------------------+");
 			System.out.println("	      |                          Vous êtes mort...                        |");
 			System.out.println("  	      +-------------------------------------------------------------------+");
-
+			
 		} else {
 			String victory = "    __   __            __         _    ___      __                            __        __       __\r\n"
 					+ "   / /  / / __________/ /        | |  / (_)____/ /_____  _______  __         / /________\\ \\     / /\r\n"
@@ -872,31 +863,34 @@ public class Labyrinthe {
 			System.out.println("  	      +-------------------------------------------------------------------+");
 
 			int recompense = randInt(0, 500);
-
+									
 			System.out.println("	      +-------------------------------------------------------------------+");
-			System.out.println("	                   Vous gagnez " + recompense + " pièces d'or");
+			System.out.println("	                   	Vous gagnez " + recompense + " pièces d'or");
 			System.out.println("  	      +-------------------------------------------------------------------+");
 
 			player.setGold(player.getGold() + recompense);
 		}
 	}
+	
 	public void openInventory(Hero player, String choix) {
-		
+
 		choix = "";
-		
+
 		Scanner in = new Scanner(System.in);
-		
+
+		System.out.println(
+				"+--------------------------------------------------------------------------------------------------+");
+		System.out.println("                                     	Inventaire ");
+		System.out.println(
+				"+--------------------------------------------------------------------------------------------------+\n");
+
 		System.out.println("Or : " + player.getGold());
 
 		System.out.println("Potion de Vie - " + player.getHealPotions() + " restantes.");
-		
-		System.out.println("Potion de Force - " + player.getStrenghtPotions() + " restantes.");
 
-		System.out.println("");
+		System.out.println("Potion de Force - " + player.getStrenghtPotions() + " restantes.\n");
 
 		player.showInventory(player, "");
-
-		System.out.println("");
 
 		System.out.println(
 				"+--------------------------------------------------------------------------------------------------+");

@@ -34,17 +34,23 @@ public class Entity implements Serializable{
 	public static Monster randomMonster(int abs, int ord) {
 
 		Random rand = new Random();
-		Monster[] enemies = new Monster[5];
-		enemies[0] = new Monster("PIKACHU", 10, 50, 1, abs, ord);
-		enemies[1] = new Monster("GENGAR", 10, 50, 1, abs, ord);
-		enemies[2] = new Monster("SALAMECHE", 10, 50, 1, abs, ord);
-		enemies[3] = new Monster("MEW", 10, 50, 1, abs, ord);
-		enemies[4] = new Monster("TOGEPI", 10, 50, 1, abs, ord);
-
+		Monster[] enemies = new Monster[6];
+		enemies[0] = new Monster("TOGEPI", 10, 5, 1, abs, ord);
+		enemies[1] = new Monster("SALAMECHE", 11, 10, 1, abs, ord);
+		enemies[2] = new Monster("PIKACHU", 12, 15, 1, abs, ord);
+		enemies[3] = new Monster("GENGAR", 13, 20, 1, abs, ord);
+		enemies[4] = new Monster("RONFLEX", 14, 25, 1, abs, ord);
+		enemies[5] = new Monster("MEW", 15, 45, 30, abs, ord);
+		
 		Monster enemy = enemies[rand.nextInt(enemies.length)];
 
 		return enemy;
-
 	}
+	
+	
+	
+	
+	
+	
 
 }
